@@ -36,11 +36,5 @@
             },
             "dependsOn": []
         }
-    ],
-    "outputs": {
-        "vnetName": {
-            "type": "string",
-            "value": "[reference(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName')))]"
-        }
-    }
+    ]
 }
