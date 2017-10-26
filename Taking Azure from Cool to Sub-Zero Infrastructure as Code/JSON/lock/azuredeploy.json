@@ -9,7 +9,7 @@
     "resources": [
       {
         "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/', parameters('lockedResource'))]",
-        "type": "Microsoft.Storage/storageAccounts/providers/locks",
+        "type": "Microsoft.Network/virtualNetworks/providers/locks",
         "apiVersion": "2015-01-01",
         "properties": {
           "level": "CannotDelete"
