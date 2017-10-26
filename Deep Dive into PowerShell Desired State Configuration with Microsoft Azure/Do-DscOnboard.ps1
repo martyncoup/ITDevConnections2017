@@ -1,6 +1,6 @@
 Login-AzureRmAccount
 Register-AzureRmAutomationDscNode `
     -AutomationAccountName "AAITDev" `
-    -AzureVMName "ITDEV002" `
+    -AzureVMName "ITDEV001" `
     -ResourceGroupName "RG-WCUS-ITDev" `
-    -NodeConfigurationName "Software.7Zip"
+    -NodeConfigurationName "Features.WebServer"
