@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworkName')]",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "172.16.0.0/20"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "GatewaySubnet",
+                        "properties": {
+                            "addressPrefix": "172.16.1.0/26"
+                        }
+                    },
+                    {
+                        "name": "VirtualMachines",
+                        "properties": {
+                            "addressPrefix": "172.16.2.0/24"
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "vnetName": {
+            "type": "string",
+            "value": "reference(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName')))"
+        }
+    }
+}
